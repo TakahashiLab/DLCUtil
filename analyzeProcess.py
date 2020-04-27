@@ -3,19 +3,18 @@ import deeplabcut
 import os
 from pathlib import Path
 
-
-task='mieno20200327cw'
+homeDir='c:/Users/labmember'
+task='DecNes'
 experimenter='tsusumu'
-date='2020-03-27'
-Ngputouse=1
+date='2020-03-19'
+Ngputouse=0
 str_videotype='.mp4'
-videodir='videos/rat/200327_CW'
+
 
 
 if len(sys.argv)>1:
     Ngputouse=int(sys.argv[1]);
 
-path_videodir=os.path.join(os.getcwd(),videodir)
 
 def repeatAnalyzeVideos(path_config_file,path):
     for curDir, dirs, files in os.walk(path):
@@ -26,12 +25,13 @@ def repeatAnalyzeVideos(path_config_file,path):
                 deeplabcut.analyze_videos(path_config_file,[path_videos], shuffle=1, videotype=str_videotype,save_as_csv=True,gputouse=Ngputouse)
 
 
-path_workdir = os.path.join(os.getcwd(),task)
+path_workdir = os.path.join(homeDir,task)
 #path_workdir = os.path.join(os.getcwd(),'.')
+
 path_config_file=os.path.join(path_workdir,task + '-' + experimenter + '-' + date + '/config.yaml')
 
-
-path='/home/tsusumu/Deeplabcut/DLC/videos/rat/200327_CW/it'
+print(path_config_file)
+path='H:/intan/data/test'
 
 def find_DLCResults(path):
     for curDir, dirs, files in os.walk(path):
