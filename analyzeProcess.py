@@ -31,7 +31,7 @@ path_workdir = os.path.join(homeDir,task)
 path_config_file=os.path.join(path_workdir,task + '-' + experimenter + '-' + date + '/config.yaml')
 
 print(path_config_file)
-path='H:/intan/data/test'
+path='H:/intan/data/azechi'
 
 def find_DLCResults(path):
     for curDir, dirs, files in os.walk(path):
@@ -43,7 +43,7 @@ def find_DLCResults(path):
             elif file.endswith(".csv"):
                 os.remove(os.path.join(curDir,file))
 
-find_DLCResults(path)
+#find_DLCResults(path)
 
 repeatAnalyzeVideos(path_config_file,path)
 
