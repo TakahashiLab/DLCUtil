@@ -7,6 +7,9 @@ import scipy.io as scio
 import numpy as np
 import argparse
 
+def replace_spaces_with_bars(text):
+    return text.replace(' ', '|')
+
 def convDLC2mat(path_h5file, DLCName0):
     Dataframe = pd.read_hdf(path_h5file)
     scorer = Dataframe.columns.get_level_values(0)[0]
@@ -25,8 +28,6 @@ def convDLC2mat(path_h5file, DLCName0):
     match1 = re.search(pattern1, filename.split(DLCName0)[0])
     match2 = re.search(pattern2, filename.split(DLCName0)[0])
 
-def replace_spaces_with_bars(text):
-    return text.replace(' ', '|')
 
 # Check if either pattern is found
 if match1:
