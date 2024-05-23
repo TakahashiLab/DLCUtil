@@ -21,7 +21,7 @@ def convDLC2mat(path_h5file, DLCName0):
     # Extract the numeric part from the file name
     filename = os.path.basename(path_h5file)
     pattern1 = r'(\d{8}_\d+)'  # Eight digits followed by an underscore and one or more digits
-    pattern2 = r'(\d{4}-\d{2}-\d{2})'  # Date format YYYY-MM-DD
+    pattern2 = r'(\d{4}-\d{2}-\d{2} d{2}-d{2})'  # Date format YYYY-MM-DD
     match1 = re.search(pattern1, filename.split(DLCName0)[0])
     match2 = re.search(pattern2, filename.split(DLCName0)[0])
 
