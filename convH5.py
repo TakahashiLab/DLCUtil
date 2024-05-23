@@ -20,10 +20,15 @@ def convDLC2mat(path_h5file, DLCName0):
 
     # Extract the numeric part from the file name
     filename = os.path.basename(path_h5file)
-    match = re.search(r'(\d{8}_\d+)', filename.split(DLCName0)[0])
+    pattern1 = r'(\d{8}_\d+)'  # Eight digits followed by an underscore and one or more digits
+    pattern2 = r'(\d{4}-\d{2}-\d{2})'  # Date format YYYY-MM-DD
+    match1 = re.search(pattern1, filename.split(DLCName0)[0])
+    match2 = re.search(pattern2, filename.split(DLCName0)[0])
 
-    if match:
-        numeric_part = match.group()
+    if match1:
+        numeric_part = match1.group()
+    elif match2:
+        numeric_part = match2.group()
     else:
         numeric_part = 'unknown'
         
