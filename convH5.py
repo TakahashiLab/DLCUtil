@@ -8,7 +8,7 @@ import numpy as np
 import argparse
 
 def replace_spaces_with_bars(text):
-    return text.replace(' ', '|')
+    return text.replace(' ', '-')
 
 def convDLC2mat(path_h5file, DLCName0):
     Dataframe = pd.read_hdf(path_h5file)
