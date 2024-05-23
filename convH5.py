@@ -28,9 +28,7 @@ def convDLC2mat(path_h5file, DLCName0):
     match1 = re.search(pattern1, filename.split(DLCName0)[0])
     match2 = re.search(pattern2, filename.split(DLCName0)[0])
 
-
-# Check if either pattern is found
-if match1:
+    # Check if either pattern is found
     if match1:
         numeric_part = replace_spaces_with_bars(match1.group(1))
     elif match2:
