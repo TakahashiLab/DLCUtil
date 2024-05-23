@@ -25,10 +25,15 @@ def convDLC2mat(path_h5file, DLCName0):
     match1 = re.search(pattern1, filename.split(DLCName0)[0])
     match2 = re.search(pattern2, filename.split(DLCName0)[0])
 
+def replace_spaces_with_bars(text):
+    return text.replace(' ', '|')
+
+# Check if either pattern is found
+if match1:
     if match1:
-        numeric_part = match1.group()
+        numeric_part = replace_spaces_with_bars(match1.group(1))
     elif match2:
-        numeric_part = match2.group()
+        numeric_part = replace_spaces_with_bars(match2.group(1))
     else:
         numeric_part = 'unknown'
         
