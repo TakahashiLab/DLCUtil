@@ -1,4 +1,5 @@
-#ex.) > python ~/DLC/convH5.py '.' 'OK'
+# Windows console: python  c:\Users\stakahas.DESKTOP-JMVVEDC\github\DLCUtil\convH5.py . OK
+# ex.) > python ~/DLC/convH5.py '.' 'OK'
 #
 import os
 import re
@@ -27,7 +28,7 @@ def convDLC2mat(path_h5file, DLCName0):
     pattern2 = r'(\d{4}-\d{2}-\d{2} \d{2}-\d{2})'  # Date format YYYY-MM-DD
     match1 = re.search(pattern1, filename.split(DLCName0)[0])
     match2 = re.search(pattern2, filename.split(DLCName0)[0])
-
+    
     # Check if either pattern is found
     if match1:
         numeric_part = replace_spaces_with_bars(match1.group(1))
@@ -43,8 +44,11 @@ def convDLC2mat(path_h5file, DLCName0):
     print(path_matfile)
 
 def find_and_convert_h5(root_path, target_dir, DLCName0):
+    
     for curDir, _, files in os.walk(root_path):
+        
         rel_path = os.path.relpath(curDir, root_path)
+        
         if target_dir not in rel_path.split(os.path.sep):
             continue  # Skip if target_dir is not in the path
 
